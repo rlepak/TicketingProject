@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
 
+
+
     @GetMapping("/create")
     public String createUser(Model model){
 
