@@ -55,11 +55,9 @@
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label>Assigned Manager</label>
-                                                    <select class="custom-select" required="required">
-                                                        <option>Select</option>
-                                                        <option>Mike</option>
-                                                        <option>Tom</option>
-                                                        <option>Delisa</option>
+                                                    <select th:field="*{assignedManager}" class="custom-select" required="required">
+                                                        <option th:value=" ''" th:text="Select"></option>
+                                                        <option th:each="manager : ${managers}" th:value="${manager.userName}" th:text="${manager.firstName + ' ' + manager.lastName}"></option>
                                                     </select>
                                                     <div class="invalid-feedback">Please choose manager</div>
                                                 </div>
@@ -125,19 +123,19 @@
                                             <tr>
                                                 <th scope="col">Project Code</th>
                                                 <th scope="col">Project Name</th>
-                                                <th scope="col">Start / End Date</th>
+                                                <th scope="col">Start - End Date</th>
                                                 <th scope="col">Manager</th>
                                                 <th scope="col">Status</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                            <tr th:each="project : ${projects}">
+                                                <td th:text="${project.projectCode}"></td>
+                                                <td th:text="${project.projectName}"></td>
+                                                <td th:text="${project.startDate + ' - ' + project.endDate}"></td>
+                                                <td th:text="${project.assignedManager.firstName + ' ' + project.assignedManager.lastName}"></td>
+                                                <td th:text="${project.projectStatus}"></td>
                                                 <td>
                                                     <a class="btn btn-warning rounded-0">Update</a>
                                                     <a class="btn btn-danger rounded-0">Delete</a>
