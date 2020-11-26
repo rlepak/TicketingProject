@@ -1,6 +1,7 @@
 package com.cybertek.controller;
 
 import com.cybertek.dto.ProjectDTO;
+import com.cybertek.enums.Status;
 import com.cybertek.service.ProjectService;
 import com.cybertek.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,7 @@ public class ProjectController {
     public String insertProject(ProjectDTO project){
 
         projectService.save(project);
+        project.setProjectStatus(Status.OPEN);
 
         return "redirect:/project/create";
 
