@@ -1,6 +1,7 @@
 package com.cybertek.controller;
 
 import com.cybertek.dto.TaskDTO;
+import com.cybertek.enums.Status;
 import com.cybertek.service.ProjectService;
 import com.cybertek.service.TaskService;
 import com.cybertek.service.UserService;
@@ -10,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.time.LocalDate;
 
 @Controller
 @RequestMapping("/task")
@@ -36,6 +39,8 @@ public class TaskController {
     @PostMapping("/create")
     public String insertTask(Model model,TaskDTO task){
 
+        task.setTaskStatus(Status.OPEN);
+        task.setAssignedDate(LocalDate.now());
         taskService.save(task);
 
         return "redirect:/task/create";
