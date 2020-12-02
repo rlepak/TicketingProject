@@ -1,5 +1,7 @@
 package com.cybertek.implementation;
 
+import com.cybertek.dto.TaskDTO;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,7 +34,7 @@ public abstract class AbstractMapService<T,ID> {
     }
 
     void update(ID id,T object){
-        map.entrySet().removeIf(entry -> entry.getValue().equals(object));
+//        map.entrySet().removeIf(entry -> entry.getValue().equals(object));
         map.put(id,object);
     }
 
