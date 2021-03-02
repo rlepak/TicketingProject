@@ -7,7 +7,7 @@
 
 
     <div th:fragment="left-sidebar">
-    
+
     <div class="nav-left-sidebar sidebar-dark">
         <div class="menu-list">
           <nav class="navbar navbar-expand-lg navbar-light">
@@ -73,9 +73,9 @@
                         >
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="mark.html">Project Status</a>
+                        <a class="nav-link" th:href="@{/project/manager/complete}">Project Status</a>
                       </li>
- 
+
                     </ul>
                   </div>
                 </li>
@@ -107,7 +107,7 @@
                   </div>
                 </li>
 
-                
+
               </ul>
             </div>
           </nav>

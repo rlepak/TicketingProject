@@ -9,6 +9,7 @@ import java.util.List;
 
 @Service
 public class ProjectServiceImpl extends AbstractMapService<ProjectDTO,String> implements ProjectService {
+
     @Override
     public List<ProjectDTO> findAll() {
         return super.findAll();
